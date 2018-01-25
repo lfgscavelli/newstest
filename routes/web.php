@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/one-save',  'CustomerController@save');
-Route::get('/one-associate',  'CustomerController@associate');
+Route::get('/os',  'CustomerController@save');
+Route::get('/oa',  'CustomerController@associate');
 
 Auth::routes();
 

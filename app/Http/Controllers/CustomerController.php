@@ -28,32 +28,36 @@ class CustomerController extends Controller
         /*$address = new Address();
         $address->name = "Via De Rosis, 888 - Pdetr";
         $address->save();*/
-        //$customer = Customer::findOrFail(1);
+        $customer = Customer::findOrFail(1);
         //$address->customer()->associate($customer)->save();
         //$customer->address->name;
         //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-        //$order = new Order();
-        //$order->name = "Ordine n. 4";
-        //$order->save();
+        //$order1 = new Order();
+        //$order1->name = "Ordine n. 1";
+        //$order2 = new Order();
+        //$order2->name = "Ordine n. 2";
 
         //$customer->orders()->save($order); // salva singolo ordine
         //$customer->orders()->saveMany([$order1,$order2]); // salvataggio multiplo
         //$order->customer()->associate($customer)->save(); // salvataggio inverso
 
+        /*
         $orderName = Customer::find(1)->orders->each(function ($item, $key) {
             return $item->name;
         });
-        dd($orderName);
+        dd($orderName);*/
 
-
-        //$order = App\Customer::find(1)->orders()->where('name', 'foo')->first();
+        dd(Customer::find(1)->orders());
+        //$order = Customer::find(1)->orders()->where('name', 'foo')->first();
 
         // Restituisce una collezione di oggetti orders di $customer
         //$customer->orders;
 
         // Restituisce l'oggetto Customer di $order
         //$order->customer;
+
+        // http://prismjs.com/download.html
     }
 
 }
