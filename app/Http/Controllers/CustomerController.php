@@ -6,6 +6,7 @@ use App\Address;
 use Illuminate\Http\Request;
 use App\Customer;
 use App\Order;
+use App\Product;
 
 class CustomerController extends Controller
 {
@@ -24,11 +25,51 @@ class CustomerController extends Controller
         $customer->address()->save($address);
     }
 
+    public function create() {
+        //$customer = new Customer;
+        //$customer->name = "Rossi Company";
+        //$customer->save();
+
+        $customer = Customer::find(2);
+        $customer->orders()->create([
+            'name' => "Ordine n. 34"
+        ]);
+        //$customer->address()->create([
+        //    'name'=> "Via Roma, 3333 - Milano"
+
+        //]);
+    }
+
+    public function dissociate() {
+        $address = Address::findOrFail(2);
+        $address->customer()->dissociate()->save();
+    }
+
+    public function product() {
+        /*
+        $product = new Product();
+        $product->name = "Penne";
+        $product->save();
+        $product = new Product();
+        $product->name = "Matite";
+        $product->save();
+        $product = new Product();
+        $product->name = "Quaderni";
+        $product->save();
+
+        $order = Order::findOrFail(2);
+        $order->products()->attach([2,3]);*/
+
+        $products = Order::find(2)->products();
+        dd($products);
+    }
+
     public function associate() {
         /*$address = new Address();
         $address->name = "Via De Rosis, 888 - Pdetr";
         $address->save();*/
         $customer = Customer::findOrFail(1);
+
         //$address->customer()->associate($customer)->save();
         //$customer->address->name;
         //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -48,7 +89,8 @@ class CustomerController extends Controller
         });
         dd($orderName);*/
 
-        dd(Customer::find(1)->orders());
+        dd($customer->address);
+
         //$order = Customer::find(1)->orders()->where('name', 'foo')->first();
 
         // Restituisce una collezione di oggetti orders di $customer

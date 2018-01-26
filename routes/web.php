@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::get('/os',  'CustomerController@save');
 Route::get('/oa',  'CustomerController@associate');
+Route::get('/od',  'CustomerController@dissociate');
+Route::get('/oc',  'CustomerController@create');
+Route::get('/cp',  'CustomerController@product');
 
 Auth::routes();
 
