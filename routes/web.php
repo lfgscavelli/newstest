@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/os',  'CustomerController@save');
+Route::get('/os',  'ContentController@save');
 Route::get('/oa',  'CustomerController@associate');
 Route::get('/od',  'CustomerController@dissociate');
 Route::get('/oc',  'CustomerController@create');
