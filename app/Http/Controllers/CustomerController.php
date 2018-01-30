@@ -56,12 +56,9 @@ class CustomerController extends Controller
         $product = new Product();
         $product->name = "Quaderni";
         $product->save();
-
-        $order = Order::findOrFail(2);
-        $order->products()->attach([2,3]);*/
-
-        $products = Order::find(2)->products();
-        dd($products);
+         */
+        $product = Product::findOrFail(2);
+        $product->orders()->attach([2,3]);
     }
 
     public function associate() {

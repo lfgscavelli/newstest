@@ -12,4 +12,8 @@ class Content extends Model
     public function comments() {
         return $this->morphMany('App\Comment','commentable'); // metodo inverso
     }
+
+    public function tags() {
+        return $this->morphToMany('App\Tag', 'taggable');
+    }
 }
